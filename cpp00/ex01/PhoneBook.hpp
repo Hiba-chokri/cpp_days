@@ -4,4 +4,10 @@
 #include<iostream>
 #include<string>
 
-class PhoneBook
+class PhoneBook {
+
+    
+    public:
+        PhoneBook();
+};
+# endif

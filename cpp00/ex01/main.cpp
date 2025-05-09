@@ -1,4 +1,4 @@
-
+#include "PhoneBook.hpp"
 
 void print_menu()
 {
@@ -8,5 +8,6 @@ void print_menu()
 }
 int main(int argc, char **argv)
 {
-
+    print_menu();
+    return (0);
 }
