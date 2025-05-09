@@ -1,5 +1,12 @@
 #include "PhoneBook.hpp"
 
+void exit_program()
+{
+    exit(1);
+}
+
+
+
 void print_menu()
 {
     std::cout << "1. to add a contact enter : ADD" << std::endl;
@@ -8,6 +15,16 @@ void print_menu()
 }
 int main(int argc, char **argv)
 {
-    print_menu();
-    return (0);
+    std::string command;
+    (void)argc;
+    (void)argv;
+    while(1)
+    {
+        print_menu();
+        std::cout << "Please enter a command : "<< std::endl;
+        getline(std::cin, command);
+        if (command.compare("EXIT"))
+            exit_program();
+
+    }
 }
