@@ -3,7 +3,7 @@ CXX = c++
 CFLAGS =   -I. -Wall -Wextra -Werror
 CXXFLAGS = -I. -Wall -Wextra -Werror -std=c++98
 
-TARGET = output
+TARGET = megaphone
 
 BIN_DIR = bin
 
