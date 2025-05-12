@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hichokri <hichokri@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-12 14:05:09 by hichokri          #+#    #+#             */
-/*   Updated: 2025-05-12 14:05:09 by hichokri         ###   ########.fr       */
+/*   Created: 2025-05-12 16:02:04 by hichokri          #+#    #+#             */
+/*   Updated: 2025-05-12 16:02:04 by hichokri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Harl.hpp"
 
-Weapon::Weapon(std::string type)
+int main(void)
 {
-    this->type = type;
-}
+    Harl obj;
 
+    
+}

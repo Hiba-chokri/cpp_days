@@ -7,12 +7,12 @@ TARGET = output
 
 BIN_DIR = bin
 
-SRCS = main.cpp
+SRCS = ./Zombie.cpp ./main.cpp ./newZombie.cpp ./randomChump.cpp
 
-OBJS = PhoneBook.hpp
+OBJS = bin/Zombie.o bin/main.o bin/newZombie.o bin/randomChump.o
 
 vpath %.c  
-vpath %.cpp  
+vpath %.cpp . 
 
 .DEFAULT_GOAL := $(TARGET)
 

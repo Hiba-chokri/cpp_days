@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hichokri <hichokri@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-12 14:05:09 by hichokri          #+#    #+#             */
-/*   Updated: 2025-05-12 14:05:09 by hichokri         ###   ########.fr       */
+/*   Created: 2025-05-12 14:04:44 by hichokri          #+#    #+#             */
+/*   Updated: 2025-05-12 14:04:44 by hichokri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "zombie.hpp"
 
-Weapon::Weapon(std::string type)
+Zombie	*zombieHorde(int N, std::string name)
 {
-    this->type = type;
-}
+	Zombie	*zombies = new Zombie[N];
 
+	for (int i = 0; i < N; i++)
+		zombies[i].setName(name);
+
+	return (zombies);
+}

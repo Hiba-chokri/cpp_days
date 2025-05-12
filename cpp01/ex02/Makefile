@@ -7,12 +7,12 @@ TARGET = output
 
 BIN_DIR = bin
 
-SRCS = main.cpp
+SRCS = ./main.cpp
 
-OBJS = PhoneBook.hpp
+OBJS = bin/main.o
 
 vpath %.c  
-vpath %.cpp  
+vpath %.cpp . 
 
 .DEFAULT_GOAL := $(TARGET)
 
