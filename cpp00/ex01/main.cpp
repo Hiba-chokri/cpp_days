@@ -141,13 +141,13 @@ void PhoneBook::add_contact()
     else
         contacts[index].create_contact();
     index++;
-    contactCount++;
+    this->countContact++;
 }
 
 void Contact::print_contact()
 {
-    std::cout<< std::setw(10)<< "Index" << " | "<< std::setw(10)<< "First Name: " << " | "<< std::setw(10) << "Last Name: " << " | " << std::setw(10) <<"Nickname: " << std::endl;
-    std::cout << std::setw(10) << "0" << std::setw(10) << getFirstName() << " | "  << std::setw(10) << getLastName() << " | " << std::setw(10) << getNickName() << std::endl;
+    std::cout<< std::setw(10)<< "Index" << "|"<< std::setw(10)<< "First Name: " << "|"<< std::setw(10) << "Last Name: " << "|" << std::setw(10) <<"Nickname: " << std::endl;
+    std::cout << std::setw(10) << "0" <<"|"<< std::setw(10) << getFirstName() << "|"  << std::setw(10) << getLastName() << "|" << std::setw(10) << getNickName() << std::endl;
 }
 
 void PhoneBook::search_contact()
