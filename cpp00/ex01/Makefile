@@ -1,44 +1,64 @@
-CC = cc
-CXX = c++
-CFLAGS =   -I. -Wall -Wextra -Werror
-CXXFLAGS = -I. -Wall -Wextra -Werror -std=c++98
+NAME = PhoneBook
+CXX = c++ 
+CXXFLAGS =  -Wall -Wextra -Werror -std=c++98  #-fsanitize=address -g3
+src =  PhoneBook.cpp main.cpp
 
-TARGET = output
+OBJ = $(src:.cpp=.o)
 
-BIN_DIR = bin
+all: $(NAME)
 
-SRCS = main.cpp
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-OBJS = PhoneBook.hpp
-
-vpath %.c  
-vpath %.cpp  
-
-.DEFAULT_GOAL := $(TARGET)
-
-
-all: $(TARGET)
-
-debug: CXXFLAGS += -g
-debug: fclean $(TARGET)
-
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-$(BIN_DIR)/%.o: %.c | $(BIN_DIR)
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-$(BIN_DIR)/%.o: %.cpp | $(BIN_DIR)
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
-
-clean:
-	rm -rf $(BIN_DIR)
+clean: 
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -rf $(NAME)
 
 re: fclean all
-$(BIN_DIR): 
-	mkdir -p $(BIN_DIR)
-.PHONY: all clean fclean re
-.SECONDARY:
+
+# CC = cc
+# CXX = c++
+# CFLAGS =   -I. -Wall -Wextra -Werror
+# CXXFLAGS = -I. -Wall -Wextra -Werror -std=c++98
+
+# TARGET = output
+
+# BIN_DIR = bin
+
+# SRCS = main.cpp
+
+# OBJS = PhoneBook.hpp
+
+# vpath %.c  
+# vpath %.cpp  
+
+# .DEFAULT_GOAL := $(TARGET)
+
+
+# all: $(TARGET)
+
+# debug: CXXFLAGS += -g
+# debug: fclean $(TARGET)
+
+# $(TARGET): $(OBJS)
+# 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+# $(BIN_DIR)/%.o: %.c | $(BIN_DIR)
+# 	$(CC) $(CFLAGS) -c -o $@ $<
+
+# $(BIN_DIR)/%.o: %.cpp | $(BIN_DIR)
+# 	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+# clean:
+# 	rm -rf $(BIN_DIR)
+
+# fclean: clean
+# 	rm -f $(TARGET)
+
+# re: fclean all
+# $(BIN_DIR): 
+# 	mkdir -p $(BIN_DIR)
+# .PHONY: all clean fclean re
+# .SECONDARY:

@@ -13,7 +13,8 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() {
-    index = 0; // initialize index when the phonebook is created
+    index = 0;
+    countContact = 0;
 }
 
 Contact::Contact() {
@@ -24,4 +25,7 @@ Contact::Contact() {
     darkest_secret = "";
 }
 
-void getFirstName
+int PhoneBook::getContactCount()  {
+    return countContact;
+}
+

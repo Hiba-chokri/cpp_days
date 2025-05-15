@@ -12,7 +12,6 @@
 
 #include "PhoneBook.hpp"
 
-// function to count the number of caracters in a string
 int count_characters(std::string str)
 {
     int count = 0;
@@ -32,9 +31,7 @@ void Contact::set_first_name()
         }
         if(count_characters(input) > 10)
         {
-            // if it has more than 10 characters substring it to 9
             input = input.substr(0, 9);
-            // add a dot at the end
             input += ".";
             this->first_name = input;
             std::cout << "First name is too long. It should be less than 10 characters." << std::endl;
@@ -55,9 +52,7 @@ void Contact::set_last_name()
         }
         if(count_characters(input) > 10)
         {
-            // if it has more than 10 characters substring it to 9
             input = input.substr(0, 9);
-            // add a dot at the end
             input += ".";
             this->last_name = input;
             std::cout << "Last name is too long. It should be less than 10 characters." << std::endl;
@@ -77,9 +72,7 @@ void Contact::set_nickname()
         }
         if(count_characters(input) > 10)
         {
-            // if it has more than 10 characters substring it to 9
             input = input.substr(0, 9);
-            // add a dot at the end
             input += ".";
             this->nickname = input;
             std::cout << "Nickname is too long. It should be less than 10 characters." << std::endl;
@@ -99,9 +92,7 @@ void Contact::set_phone_number()
         }
         if(count_characters(input) > 10)
         {
-            // if it has more than 10 characters substring it to 9
             input = input.substr(0, 9);
-            // add a dot at the end
             input += ".";
             this->phone_number = input;
             std::cout << "Phone number is too long. It should be less than 10 characters." << std::endl;
@@ -122,9 +113,7 @@ void Contact::set_darkest_secret()
         }
         if(count_characters(input) > 10)
         {
-            // if it has more than 10 characters substring it to 9
             input = input.substr(0, 9);
-            // add a dot at the end
             input += ".";
             this->darkest_secret = input;
             std::cout << "Darkest secret is too long. It should be less than 10 characters." << std::endl;
@@ -152,13 +141,15 @@ void PhoneBook::add_contact()
     else
         contacts[index].create_contact();
     index++;
+    contactCount++;
 }
-// create a function to display the contact
 
 void Contact::print_contact()
 {
-    std::cout << "First Name: " << getFirstName() << " | " << std::cout << "Last Name: " << getLastName() << " | " << std::cout << "Nickname: " << getNickName() << std::endl;
+    std::cout<< std::setw(10)<< "Index" << " | "<< std::setw(10)<< "First Name: " << " | "<< std::setw(10) << "Last Name: " << " | " << std::setw(10) <<"Nickname: " << std::endl;
+    std::cout << std::setw(10) << "0" << std::setw(10) << getFirstName() << " | "  << std::setw(10) << getLastName() << " | " << std::setw(10) << getNickName() << std::endl;
 }
+
 void PhoneBook::search_contact()
 {
     std::string input;
@@ -172,6 +163,8 @@ void PhoneBook::search_contact()
     }
     else if (index < 0 || index >= 8)
         std::cout << "enter a valid index of the entry" << std::endl;
+    else if (index > this->countContact )
+    std::cout << "index out of range" << std::endl;
     else
         contacts[index].print_contact();
 }
