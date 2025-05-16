@@ -23,11 +23,11 @@ class Contact{
         void set_nickname();
         void set_phone_number();
         void set_darkest_secret();
-        std::string getFirstName() { return first_name; }
-        std::string getLastName() { return last_name; }
-        std::string getNickName() { return nickname; }
-        std::string getPhoneNumber() { return phone_number; }
-        std::string getDarkestSecret() { return darkest_secret; }
+        std::string getFirstName();
+        std::string getLastName();
+        std::string getNickName();
+        std::string getPhoneNumber();
+        std::string getDarkestSecret();
         void print_contact(int index);
         void display_contact();
 };
