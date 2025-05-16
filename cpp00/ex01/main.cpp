@@ -149,8 +149,9 @@ void Contact::print_contact(int index)
     std::cout<< std::setw(10)<< "Index" << "|"<< std::setw(10)<< "First Name" << "|"<< std::setw(10) << "Last Name" << "|" << std::setw(10) <<"Nickname" << "|"<< std::endl;
     std::cout << std::setw(10) << index <<"|"<< std::setw(10) << getFirstName() << "|"  << std::setw(10) << getLastName() << "|" << std::setw(10) << getNickName()<< "|" << std::endl;
 }
-void Contact::display_contact()
+void Contact::display_contact(int index)
 {
+    std::cout << "Index: " << index << std::endl;
     std::cout << "First Name: " << getFirstName() << std::endl;
     std::cout << "Last Name: " << getLastName() << std::endl;
     std::cout << "Nickname: " << getNickName() << std::endl;
@@ -160,6 +161,10 @@ void Contact::display_contact()
 
 void PhoneBook::search_contact()
 {
+    for(int i=0 ; i < this->index; i++)
+    {
+                contacts[i].print_contact(i);
+    }
     std::string input;
     std::cout << "Enter the index of the contact you want to search: ";
     std::getline(std::cin, input);
@@ -184,7 +189,13 @@ void PhoneBook::search_contact()
         else if (idx >= this->countContact )
             std::cout << "Index out of range." << std::endl;
         else
-            contacts[idx].print_contact(idx);
+        {
+            for(int i=0; i< this->index; i++)
+            {
+                if (i== idx)
+                    contacts[i].display_contact(idx);
+            }
+        }
     }
     else
         std::cout << "Invalid input. Please enter a number between 0 and 7." << std::endl;

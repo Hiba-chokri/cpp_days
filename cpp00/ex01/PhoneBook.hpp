@@ -29,7 +29,7 @@ class Contact{
         std::string getPhoneNumber();
         std::string getDarkestSecret();
         void print_contact(int index);
-        void display_contact();
+        void display_contact(int index);
 };
 
 class PhoneBook {
