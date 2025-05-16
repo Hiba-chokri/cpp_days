@@ -26,7 +26,9 @@ class Contact{
         std::string getFirstName() { return first_name; }
         std::string getLastName() { return last_name; }
         std::string getNickName() { return nickname; }
-        void print_contact();
+        std::string getPhoneNumber() { return phone_number; }
+        std::string getDarkestSecret() { return darkest_secret; }
+        void print_contact(int index);
         void display_contact();
 };
 

@@ -144,10 +144,18 @@ void PhoneBook::add_contact()
     this->countContact++;
 }
 
-void Contact::print_contact()
+void Contact::print_contact(int index)
 {
-    std::cout<< std::setw(10)<< "Index" << "|"<< std::setw(10)<< "First Name: " << "|"<< std::setw(10) << "Last Name: " << "|" << std::setw(10) <<"Nickname: " << std::endl;
-    std::cout << std::setw(10) << "0" <<"|"<< std::setw(10) << getFirstName() << "|"  << std::setw(10) << getLastName() << "|" << std::setw(10) << getNickName() << std::endl;
+    std::cout<< std::setw(10)<< "Index" << "|"<< std::setw(10)<< "First Name" << "|"<< std::setw(10) << "Last Name" << "|" << std::setw(10) <<"Nickname" << "|"<< std::endl;
+    std::cout << std::setw(10) << index <<"|"<< std::setw(10) << getFirstName() << "|"  << std::setw(10) << getLastName() << "|" << std::setw(10) << getNickName()<< "|" << std::endl;
+}
+void Contact::display_contact()
+{
+    std::cout << "First Name: " << getFirstName() << std::endl;
+    std::cout << "Last Name: " << getLastName() << std::endl;
+    std::cout << "Nickname: " << getNickName() << std::endl;
+    std::cout << "Phone Number: " << getPhoneNumber() << std::endl;
+    std::cout << "Darkest Secret: " << getDarkestSecret() << std::endl;
 }
 
 void PhoneBook::search_contact()
@@ -155,18 +163,31 @@ void PhoneBook::search_contact()
     std::string input;
     std::cout << "Enter the index of the contact you want to search: ";
     std::getline(std::cin, input);
-    int index = atoi(input.c_str());
-    if(this->index == 0)
-    {
-        std::cout << "No contacts found. Please add a contact first." << std::endl;
-        return ;
+    // Check if input is all digits
+    bool is_digit = true;
+    for (size_t i = 0; i < input.length(); ++i) {
+        if (!isdigit(input[i])) {
+            is_digit = false;
+            break;
+        }
     }
-    else if (index < 0 || index >= 8)
-        std::cout << "enter a valid index of the entry" << std::endl;
-    else if (index > this->countContact )
-    std::cout << "index out of range" << std::endl;
+    if (is_digit)
+    {
+        int idx = std::atoi(input.c_str());
+        if (this->index == 0)
+        {
+            std::cout << "No contacts found. Please add a contact first." << std::endl;
+            return ;
+        }
+        else if (idx < 0 || idx > 7)
+            std::cout << "Enter a valid index between 0 and 7." << std::endl;
+        else if (idx >= this->countContact )
+            std::cout << "Index out of range." << std::endl;
+        else
+            contacts[idx].print_contact(idx);
+    }
     else
-        contacts[index].print_contact();
+        std::cout << "Invalid input. Please enter a number between 0 and 7." << std::endl;
 }
 void print_menu()
 {
