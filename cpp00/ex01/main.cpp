@@ -23,11 +23,26 @@ int count_characters(std::string str)
 void Contact::set_first_name()
 {
         std::string input;
+        bool allPrintable = true;
         std::cout << "Enter First Name: ";
         std::getline(std::cin, input);
-        while (input.empty()) {
-            std::cout << "Field cannot be empty. Try again: ";
-            std::getline(std::cin, input);
+        for (size_t i = 0; i < input.length(); ++i) {
+            if (!isprint(static_cast<unsigned char>(input[i]))) {
+                allPrintable = false;
+                break;
+            }
+        }
+        while (input.empty() || !allPrintable) {
+            allPrintable = true;
+                std::cout << "Field cannot be empty or contain non-printable characters."<<std::endl;
+                std::cout << "Enter First Name: "<<std::endl;
+                std::getline(std::cin, input);
+                for (size_t i = 0; i < input.length(); ++i) {
+                    if (!isprint(static_cast<unsigned char>(input[i]))) {
+                        allPrintable = false;
+                        break;
+                    }
+                }
         }
         if(count_characters(input) > 10)
         {
@@ -38,17 +53,31 @@ void Contact::set_first_name()
         }
         else
             this->first_name = input;
-
 }
+
 void Contact::set_last_name()
 {
     std::string input;
-
+    bool allPrintable = true;
         std::cout << "Enter Last Name: ";
         std::getline(std::cin, input);
-        while (input.empty()) {
-            std::cout << "Field cannot be empty. Try again: ";
-            std::getline(std::cin, input);
+        for (size_t i = 0; i < input.length(); ++i) {
+            if (!isprint(static_cast<unsigned char>(input[i]))) {
+                allPrintable = false;
+                break;
+            }
+        }
+        while (input.empty() || !allPrintable) {
+            allPrintable = true;
+                std::cout << "Field cannot be empty or contain non-printable characters."<<std::endl;
+                std::cout << "Enter Last Name: "<<std::endl;
+                std::getline(std::cin, input);
+                for (size_t i = 0; i < input.length(); ++i) {
+                    if (!isprint(static_cast<unsigned char>(input[i]))) {
+                        allPrintable = false;
+                        break;
+                    }
+                }
         }
         if(count_characters(input) > 10)
         {
@@ -63,12 +92,26 @@ void Contact::set_last_name()
 void Contact::set_nickname()
 {
     std::string input;
-
+    bool allPrintable = true;
         std::cout << "Enter Nickname: ";
         std::getline(std::cin, input);
-        while (input.empty()) {
-            std::cout << "Field cannot be empty. Try again: ";
-            std::getline(std::cin, input);
+        for (size_t i = 0; i < input.length(); ++i) {
+            if (!isprint(static_cast<unsigned char>(input[i]))) {
+                allPrintable = false;
+                break;
+            }
+        }
+        while (input.empty() || !allPrintable) {
+            allPrintable = true;
+                std::cout << "Field cannot be empty or contain non-printable characters."<<std::endl;
+                std::cout << "Enter Nickname: "<<std::endl;
+                std::getline(std::cin, input);
+                for (size_t i = 0; i < input.length(); ++i) {
+                    if (!isprint(static_cast<unsigned char>(input[i]))) {
+                        allPrintable = false;
+                        break;
+                    }
+                }
         }
         if(count_characters(input) > 10)
         {
@@ -83,12 +126,26 @@ void Contact::set_nickname()
 void Contact::set_phone_number()
 {
     std::string input;
-
+    bool allPrintable = true;
         std::cout << "Enter Phone Number: ";
         std::getline(std::cin, input);
-        while (input.empty()) {
-            std::cout << "Field cannot be empty. Try again: ";
-            std::getline(std::cin, input);
+        for (size_t i = 0; i < input.length(); ++i) {
+            if (!isprint(static_cast<unsigned char>(input[i]))) {
+                allPrintable = false;
+                break;
+            }
+        }
+        while (input.empty() || !allPrintable) {
+            allPrintable = true;
+                std::cout << "Field cannot be empty or contain non-printable characters."<<std::endl;
+                std::cout << "Enter Phone Number: "<<std::endl;
+                std::getline(std::cin, input);
+                for (size_t i = 0; i < input.length(); ++i) {
+                    if (!isprint(static_cast<unsigned char>(input[i]))) {
+                        allPrintable = false;
+                        break;
+                    }
+                }
         }
         if(count_characters(input) > 10)
         {
@@ -104,12 +161,26 @@ void Contact::set_phone_number()
 void Contact::set_darkest_secret()
 {
     std::string input;
-
+    bool allPrintable = true;
         std::cout << "Enter Darkest Secret: ";
         std::getline(std::cin, input);
-        while (input.empty()) {
-            std::cout << "Field cannot be empty. Try again: ";
-            std::getline(std::cin, input);
+        for (size_t i = 0; i < input.length(); ++i) {
+            if (!isprint(static_cast<unsigned char>(input[i]))) {
+                allPrintable = false;
+                break;
+            }
+        }
+        while (input.empty() || !allPrintable) {
+            allPrintable = true;
+                std::cout << "Field cannot be empty or contain non-printable characters."<<std::endl;
+                std::cout << "Enter Darkest Secret: "<<std::endl;
+                std::getline(std::cin, input);
+                for (size_t i = 0; i < input.length(); ++i) {
+                    if (!isprint(static_cast<unsigned char>(input[i]))) {
+                        allPrintable = false;
+                        break;
+                    }
+                }
         }
         if(count_characters(input) > 10)
         {
@@ -135,12 +206,15 @@ void PhoneBook::add_contact()
 {
     if (index >= 8)
     {
-       index = index % 8;
+        index = index % 8;
        contacts[index].create_contact();
+       index++;
     }
     else
+    {
         contacts[index].create_contact();
-    index++;
+        index++;
+    }
     this->countContact++;
 }
 
@@ -149,6 +223,7 @@ void Contact::print_contact(int index)
     std::cout<< std::setw(10)<< "Index" << "|"<< std::setw(10)<< "First Name" << "|"<< std::setw(10) << "Last Name" << "|" << std::setw(10) <<"Nickname" << "|"<< std::endl;
     std::cout << std::setw(10) << index <<"|"<< std::setw(10) << getFirstName() << "|"  << std::setw(10) << getLastName() << "|" << std::setw(10) << getNickName()<< "|" << std::endl;
 }
+
 void Contact::display_contact(int index)
 {
     std::cout << "Index: " << index << std::endl;
@@ -168,7 +243,6 @@ void PhoneBook::search_contact()
     std::string input;
     std::cout << "Enter the index of the contact you want to search: ";
     std::getline(std::cin, input);
-    // Check if input is all digits
     bool is_digit = true;
     for (size_t i = 0; i < input.length(); ++i) {
         if (!isdigit(input[i])) {
@@ -200,6 +274,7 @@ void PhoneBook::search_contact()
     else
         std::cout << "Invalid input. Please enter a number between 0 and 7." << std::endl;
 }
+
 void print_menu()
 {
     std::cout << "1. to add a contact enter : ADD" << std::endl;
@@ -218,17 +293,20 @@ int main(int argc, char **argv)
     {
         print_menu();
         std::cout << "Please enter a command : "<< std::endl;
-        getline(std::cin, command);
-        if (command.compare("ADD") == 0)
-            phonebook.add_contact();
-        else if (command.compare("SEARCH") == 0)
-            phonebook.search_contact();
-        else if (command.compare("EXIT") == 0)
-        {
-            std::cout << "Exiting" << std::endl;
+        if (!getline(std::cin, command))
             break;
-        }
-        else
-            std::cout << "Invalid command. Please try again." << std::endl;
+        else{
+            if (command.compare("ADD") == 0)
+                phonebook.add_contact();
+            else if (command.compare("SEARCH") == 0)
+                phonebook.search_contact();
+            else if (command.compare("EXIT") == 0)
+            {
+                std::cout << "Exiting" << std::endl;
+                break;
+            }
+            else
+                std::cout << "Invalid command. Please try again." << std::endl;
+     }
     }
 }

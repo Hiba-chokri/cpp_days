@@ -7,6 +7,7 @@
 #include <bits/stdc++.h>
 #include <iomanip>
 #include<cstring>
+#include <cctype>
 
 class Contact{
     private:
@@ -16,7 +17,6 @@ class Contact{
     std::string phone_number;
     std::string darkest_secret;
     public:
-        Contact();
         void create_contact();
         void set_first_name();
         void set_last_name();
