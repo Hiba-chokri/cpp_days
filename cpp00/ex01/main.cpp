@@ -206,16 +206,15 @@ void PhoneBook::add_contact()
 {
     if (index >= 8)
     {
-        index = index % 8;
-       contacts[index].create_contact();
+       contacts[index % 8].create_contact();
        index++;
     }
     else
     {
         contacts[index].create_contact();
         index++;
+        this->countContact++;
     }
-    this->countContact++;
 }
 
 void Contact::print_contact(int index)
@@ -236,7 +235,7 @@ void Contact::display_contact(int index)
 
 void PhoneBook::search_contact()
 {
-    for(int i=0 ; i < this->index; i++)
+    for(int i=0 ; i < 8; i++)
     {
                 contacts[i].print_contact(i);
     }
