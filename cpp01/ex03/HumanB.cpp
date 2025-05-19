@@ -12,18 +12,19 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
-{
-    this->name = name;
-}
 
-void HumanB::setWeapon(Weapon *weapon)
-{
-    this->weapon = weapon;
-}
+HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
 
 
 void HumanB::attack(void)
 {
-    std::cout<<this->name << "attacks with their "<< this->weapon->setWeapon<<std::endl;
+    if(!weapon)
+        std::cout << name << " has no weapon to attack with!" << std::endl;
+    else
+        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
+}
+
+void HumanB::setWeapon(Weapon &weapon)
+{
+    this->weapon = &weapon;
 }

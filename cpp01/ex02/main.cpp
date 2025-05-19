@@ -16,7 +16,7 @@
 int main(void)
 {
     std::string sentence = "HI THIS IS BRAIN";
-    std::stringPTR *stringPtr = &sentence;
+    std::string *stringPtr = &sentence;
     std::string &stringRef = sentence;
 
     std::cout << "Address of string: " << &sentence << std::endl;

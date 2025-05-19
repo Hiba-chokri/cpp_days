@@ -12,9 +12,8 @@
 
 #include "Harl.hpp"
 
-int main(void)
+int main()
 {
     Harl obj;
-
-    
+    obj.complain("DEBUG");
 }
