@@ -14,9 +14,9 @@
 
 Zombie::Zombie() : name("") {}
 
-Zombie::Zombie(std::string name) {
-    this->name = name;
-}
+// Zombie::Zombie(std::string name) {
+    // this->name = name;
+// }
 
 Zombie::~Zombie()
 {
