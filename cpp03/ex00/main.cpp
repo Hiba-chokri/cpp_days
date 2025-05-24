@@ -1,5 +1,10 @@
 #include "ClapTrap.hpp"
 
+// std::ostream& operator<<(std::ostream& out, const ClapTrap& value){
+//     out << value.toFloat();
+//     return out;
+// }
+
 int main()
 {
     ClapTrap obj("Aliens");
