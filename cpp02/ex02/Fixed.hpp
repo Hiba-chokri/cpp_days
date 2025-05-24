@@ -50,7 +50,16 @@ class Fixed {
         Fixed operator-(const Fixed &val) const;
         Fixed operator*(const Fixed &val) const;
         Fixed operator/(const Fixed &val) const;
-        Fixed operator++(int);
+        Fixed	operator++(); // Prefix increment
+        Fixed	operator++(int); // Postfix increment
+        Fixed	operator--(); // Prefix decrement
+        Fixed	operator--(int); // Postfix decrement
+
+        //static member functions
+        Fixed	&min(Fixed &fixed1, Fixed &fixed2);
+         const Fixed	&min(const Fixed &fixed1, const Fixed &fixed2);
+        Fixed	&max(Fixed &fixed1, Fixed &fixed2);
+         const Fixed	&max(const Fixed &fixed1, const Fixed &fixed2);
         float toFloat( void ) const;
         int toInt( void ) const;
 };

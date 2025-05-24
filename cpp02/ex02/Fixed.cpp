@@ -48,8 +48,59 @@ Fixed Fixed::operator/(const Fixed &val) const{
     return result;
 }
 
-Fixed Fixed::operator++(int) {
-    Fixed temp = *this;     // Save the current value
-    this->fixed_point += 1; // Increment the fixed_point by 1 (i.e., +ε)
-    return temp;            // Return the old value (before incrementing)
+Fixed	Fixed::operator++()
+{
+	Fixed	obj;
+
+	obj.fixedPointValue = ++this->fixedPointValue;
+	return (obj);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	obj;
+
+	obj.fixedPointValue = this->fixedPointValue++;
+	return (obj);
+}
+
+Fixed	Fixed::operator--()
+{
+	Fixed	obj;
+
+	obj.fixedPointValue = --this->fixedPointValue;
+	return (obj);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	obj;
+
+	obj.fixedPointValue = this->fixedPointValue--;
+	return (obj);
+}
+
+Fixed& Fixed::min(Fixed& fixed1, Fixed& fixed2)
+{
+	if(fixed1 < fixed2)
+		return fixed1;
+    return fixed2;	
+}
+const Fixed& Fixed::min(const Fixed& fixed1, const Fixed& fixed2)
+{
+	if(fixed1 < fixed2)
+		return fixed1;
+    return fixed2;
+}
+Fixed& Fixed::max(Fixed& fixed1, Fixed& fixed2)
+{
+	if(fixed1 > fixed2)
+		return fixed1;
+    return fixed2;	
+}
+const Fixed& Fixed::max(const Fixed& fixed1, const Fixed& fixed2)
+{
+	if(fixed1 > fixed2)
+	return fixed1;
+return fixed2;	
 }
