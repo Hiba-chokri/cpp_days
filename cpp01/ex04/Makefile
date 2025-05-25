@@ -11,7 +11,7 @@ $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean: 
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) *.replace
 
 fclean: clean
 	rm -rf $(NAME)

@@ -26,6 +26,7 @@ void replace_function(std::string fileName, std::string s1, std::string s2)
     }
     std::string line;
     std::string tmp;
+
     std::string newFileName = fileName + ".replace";
     std::ofstream newFile(newFileName.c_str());
     if (!newFile.is_open())
@@ -40,12 +41,15 @@ void replace_function(std::string fileName, std::string s1, std::string s2)
         size_t found;
         while ((found = line.find(s1, pos)) != std::string::npos)
         {
-            result += line.substr(pos, found - pos); // add text before s1
-            result += s2;                            // add replacement
-            pos = found + s1.length();               // move past s1
+            result += line.substr(pos, found - pos);
+            result += s2;                           
+            pos = found + s1.length();               
         }
-        result += line.substr(pos); // add the rest of the line
-        newFile << result << std::endl; 
+        result += line.substr(pos);
+        if (!file.eof())
+            newFile << result << std::endl;
+        else
+            newFile << result;
     }
     file.close();
     newFile.close();

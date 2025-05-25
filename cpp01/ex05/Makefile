@@ -1,4 +1,4 @@
-NAME = harl
+NAME = fixed
 CXX = c++ 
 CXXFLAGS =  -Wall -Wextra -Werror -std=c++98  #-fsanitize=address -g3
 src = Harl.cpp main.cpp

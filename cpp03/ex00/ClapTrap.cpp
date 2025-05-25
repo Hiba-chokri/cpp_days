@@ -1,12 +1,29 @@
 #include "ClapTrap.hpp"
 
+void ClapTrap::setHits(unsigned int val)
+{
+    hitPoints = val;
+}
+
+void ClapTrap::setEenergy(unsigned int val)
+{
+    energyPoints = val;
+}
+void ClapTrap::setDamage(unsigned int val)
+{
+    attackDamage = val;
+}
+
 ClapTrap::ClapTrap()
 {
     std::cout << "Default constructor called"<<std::endl;
+    hitPoints = 10;
+    energyPoints = 10;
+    attackDamage = 0;
 }
 ClapTrap::ClapTrap(std::string name)
 {
-    std::cout << "Copy constructor called"<<std::endl;
+    std::cout << "Parametrized constructor called"<<std::endl;
     this->name = name;
     hitPoints = 10;
     energyPoints = 10;
@@ -16,7 +33,10 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
     std::cout << "Copy constructor called"<<std::endl;
-    *this = other;
+    this->name = other.name;
+    this->hitPoints = other.hitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
 }
 ClapTrap::~ClapTrap()
 {
@@ -47,7 +67,7 @@ void ClapTrap::attack(const std::string &target)
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (hitPoints > 0)
+    if (hitPoints > 0 && energyPoints > 0)
     {
         hitPoints -= amount;
         std::cout << name << " takes " << amount << " points of damage!"<<std::endl;

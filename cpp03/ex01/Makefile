@@ -18,4 +18,3 @@ fclean: clean
 
 re: fclean all
 
-.SECONDARY:

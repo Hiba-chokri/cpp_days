@@ -1,36 +1,34 @@
-#include "ScavTRap.hpp"
+#include "ScavTrap.hpp"
 
-using std::cout;
-
-ScavTrap::ScavTrap() {
-  std::cout << "Default constructor called\n" << std::endl;
+ScavTrap::ScavTrap()
+{
+  std::cout << "ScavTrap constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string& n)
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-  cout << "ScavTRap Constructor called for" << std::endl;
- }
+	std::cout << "ScavTrap Parametrized Constructor called" << std::endl;
+	this->hitPoints = 100;
+	this->energyPoints = 100;
+	this->attackDamage = 30;
+}
 
-ScavTrap::ScavTrap(const ScavTrap& other) {
-	*this = other;
-	std::cout << "ScavTrap " << n << " copy-constructed"<<std::endl;
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
+	std::cout << "ScavTrap " << name << " copy constructed called"<<std::endl;
+	
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
 	if (this != &other) {
-		n = other.n;
-		htPoints = other.htPoints;
-		enPoints = other.enPoints;
-		attDamage = other.attDamage;
-	}
-	std::cout << "ScavTrap " << n << " assigned"<<std::endl;
-	return *this;
+        ClapTrap::operator=(other);
+    }
+    return *this;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap " << n << " destroyed"<<std::endl;
+	std::cout << "ScavTrap " << name << " destroyed"<<std::endl;
 }
 
 void ScavTrap::guardGate() {
-    std::cout << "ScavTrap " << n << " is now in Gate Keeper mode"<<std::endl;
+    std::cout << "ScavTrap " << name << " is now in Gate Keeper mode"<<std::endl;
 }

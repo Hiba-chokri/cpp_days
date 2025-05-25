@@ -17,8 +17,7 @@ int main(void) {
     Zombie* heapZombie;
     heapZombie = newZombie("Heap Zombie");
     heapZombie->announce();
+    randomChump("StackZom");
     delete heapZombie;
-    randomChump("StackZom"); 
-
     return 0;
 }

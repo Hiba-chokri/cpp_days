@@ -1,15 +1,10 @@
-#include "ClapTrap.hpp"
-
-// std::ostream& operator<<(std::ostream& out, const ClapTrap& value){
-//     out << value.toFloat();
-//     return out;
-// }
+#include "FragTrap.hpp"
 
 int main()
 {
     ClapTrap obj("Aliens");
     ClapTrap obj2("Hero");
-    ClapTrap obj1(obj);
+
     unsigned int amount = 40;
     const std::string target = "army";
     obj.attack(target);

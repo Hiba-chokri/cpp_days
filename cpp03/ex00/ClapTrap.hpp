@@ -22,7 +22,13 @@ class ClapTrap {
         void attack(const std::string &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-};
 
-//std::ostream& operator<<(std::ostream& out, const ClapTrap& value);
+        void setHits(unsigned  int val);
+        void setEenergy(unsigned  int val);
+        void setDamage(unsigned  int val);
+        unsigned int getHits() const;
+        unsigned int getEenergy() const;
+        unsigned int getDamage() const;
+
+};
 #endif

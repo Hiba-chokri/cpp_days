@@ -7,14 +7,9 @@
 
 class ScavTrap : public ClapTrap
 {
-	private:
-	 std::string n;
-		unsigned int htPoints;
-		unsigned int attDamage;
-		unsigned int enPoints;
 	public:
 		ScavTrap();
-		ScavTrap(const std::string& n);
+		ScavTrap(const std::string& name);
 		ScavTrap(const ScavTrap& other);
 		ScavTrap& operator=(const ScavTrap& other);
 		~ScavTrap();
