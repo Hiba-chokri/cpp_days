@@ -17,6 +17,8 @@ class ScavTrap : public ClapTrap
 		unsigned int setHit();
 		unsigned int setattack();
 		unsigned int setEnergy();
+
+		void attack(const std::string &target);
 		void guardGate();
 };
 

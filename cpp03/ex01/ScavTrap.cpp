@@ -19,10 +19,21 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
-	if (this != &other) {
+	std::cout<<"Scavtrap copy assignement operetor called"<<std::endl;
         ClapTrap::operator=(other);
-    }
     return *this;
+}
+
+
+void ScavTrap::attack(const std::string &target)
+{
+    if (hitPoints > 0 && energyPoints > 0)
+    {
+        std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!"<<std::endl;
+        energyPoints--;
+    }
+    else
+        std::cout << name << " has no energy or hit points left to attack!"<<std::endl;
 }
 
 ScavTrap::~ScavTrap() {

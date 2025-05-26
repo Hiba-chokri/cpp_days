@@ -3,17 +3,20 @@
 int main()
 {
     ClapTrap obj("Aliens");
-    ClapTrap obj2("Hero");
-
-    unsigned int amount = 40;
+    FragTrap obj2;
+    FragTrap obj1("fishie");
+    
+    unsigned int amount = 0;
     const std::string target = "army";
+    
     obj.attack(target);
-    obj.takeDamage(amount);
-    obj.beRepaired(amount);
+    obj.takeDamage(5);
+    obj.beRepaired(1);
+    obj.takeDamage(5);
+    obj1.highFivesGuys();
 
    obj2.attack(target);
    obj2.takeDamage(amount);
    obj2.beRepaired(amount);
-   obj2 = obj;
     
 }

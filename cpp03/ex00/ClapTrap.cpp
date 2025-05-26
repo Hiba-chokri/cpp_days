@@ -21,6 +21,7 @@ ClapTrap::ClapTrap()
     energyPoints = 10;
     attackDamage = 0;
 }
+
 ClapTrap::ClapTrap(std::string name)
 {
     std::cout << "Parametrized constructor called"<<std::endl;

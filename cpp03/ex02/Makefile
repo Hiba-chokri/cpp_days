@@ -1,7 +1,7 @@
-NAME = clap
+NAME = FragTrap
 CXX = c++ 
 CXXFLAGS =  -Wall -Wextra -Werror -std=c++98  #-fsanitize=address -g3
-src = ClapTrap.cpp main.cpp
+src = ClapTrap.cpp FragTrap.cpp main.cpp
 
 OBJ = $(src:.cpp=.o)
 
