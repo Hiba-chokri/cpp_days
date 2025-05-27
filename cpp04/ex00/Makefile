@@ -1,7 +1,7 @@
 NAME = animal
 CXX = c++ 
 CXXFLAGS =  -Wall -Wextra -Werror -std=c++98  #-fsanitize=address -g3
-src = .cpp ScavTrap.cpp main.cpp
+src = Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 
 OBJ = $(src:.cpp=.o)
 

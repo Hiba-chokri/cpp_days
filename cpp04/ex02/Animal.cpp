@@ -13,9 +13,9 @@ Animal::Animal(const Animal& other)
 }
 Animal& Animal::operator=(const Animal& other)
 {
+    std::cout << "Animal assignment operator called" << std::endl;
     if (this != &other) {
         type = other.type;
-        std::cout << "Animal assignment operator called" << std::endl;
     }
     return *this;
 }
