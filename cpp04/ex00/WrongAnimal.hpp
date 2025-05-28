@@ -13,6 +13,7 @@ class WrongAnimal {
         WrongAnimal& operator=(const WrongAnimal& other);
         ~WrongAnimal();
         void makeSound() const;
+        std::string getType() const;
 };
 
 #endif
