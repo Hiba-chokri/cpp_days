@@ -13,16 +13,23 @@ Bureaucrat::Bureaucrat()
     std::cout << "Bureaucrat constructed !" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string Name, int Grade)
+Bureaucrat::Bureaucrat(std::string Name, int Grade): name(Name)
 {
-    Name = name;
-    Grade = grade;
+    if (grade < 1)
+    {
+        throw GradeTooHighException();
+    }
+    else if (grade > 150)
+   {
+        throw GradeTooLowException();
+   }
+   grade = Grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 {
     *this = obj;
-    std::cout<<"cop"
+    std::cout<<"copy constructor called "<<std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
