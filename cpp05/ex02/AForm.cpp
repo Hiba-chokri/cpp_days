@@ -1,5 +1,25 @@
 #include "AForm.hpp"
 
+const char	*FormGradeTooHighException::what() const throw()
+{
+	return ("Form::GradeTooHighException");
+}
+
+const char	*FormGradeTooLowException::what() const throw()
+{
+	return ("Form::GradeTooLowException");
+}
+
+const char	*FormNotSignedException::what() const throw()
+{
+	return ("Form::FormNotSignedException");
+}
+
+const char	*FormFileException::what() const throw()
+{
+	return ("Form::FormFileException: File could not be opened.");
+}
+
 // Default constructor
 AForm::AForm() : name("default"), isSigned(false), gradeToSign(150), gradeToExecute(150) {
     std::cout << "AForm default constructor called" << std::endl;
@@ -59,7 +79,7 @@ int AForm::getGradeToExecute() const {
 // beSigned method
 void AForm::beSigned(const Bureaucrat& b) {
     if (b.getGrade() > gradeToSign) {
-        throw GradeTooLowException();
+        throw FormGradeTooLowException();
     }
     isSigned = true;
 }
@@ -68,11 +88,11 @@ void AForm::beSigned(const Bureaucrat& b) {
 void AForm::execute(Bureaucrat const & executor) const {
     // Check if form is signed
     if (!isSigned) {
-        throw GradeTooLowException();
+        throw FormGradeTooLowException();
     }
     // Check if executor has sufficient grade
     if (executor.getGrade() > gradeToExecute) {
-        throw GradeTooLowException();
+        throw FormGradeTooLowException();
     }
     // If all checks pass, call the concrete implementation
     executeAction();
@@ -89,9 +109,9 @@ const char* AForm::GradeTooLowException::what() const throw() {
 
 // Output operator
 std::ostream& operator<<(std::ostream& out, const AForm& f) {
-    out << "Form: " << f.getName() 
-        << ", Signed: " << (f.getIsSigned() ? "Yes" : "No")
-        << ", Grade to sign: " << f.getGradeToSign()
-        << ", Grade to execute: " << f.getGradeToExecute();
-    return out;
+    out	<< "FormName: " << f.getName()
+		<< ", FormIsSigned: " << f.getIsSigned()
+		<< ", FormSignGrade: " << f.getGradeToSign()
+		<< ", FormExecuteGrade: " << f.getGradeToExecute() << std::endl;
+	return (out);
 }

@@ -1,9 +1,9 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "Form.hpp"
-
 #include <iostream>
+
+class Form; // Forward declaration
 
 class Bureaucrat
 {
@@ -19,17 +19,17 @@ class Bureaucrat
         std::string getName() const;
         int getGrade() const;
         void incrementGrade();
-        void decrementGrade();
-        void signForm(Form& form) const;
-        void executeForm(const Form& form) const;
-        class GradeTooHighException: public std::exception {
-            public:
-                const char* what() const throw();  // overrides std::exception::what()
+        void decrementGrade(); 
+    class GradeTooHighException: public std::exception {
+     public:
+        const char* what() const throw();  // overrides std::exception::what()
         };
         class GradeTooLowException : public std::exception {
-        public:
+         public:
             const char* what() const throw();
-    };       
+         }; 
+            
+        void signForm(Form& form);
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);

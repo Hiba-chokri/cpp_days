@@ -26,8 +26,12 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 // Execute action - announces presidential pardon (validation handled by base class)
-void PresidentialPardonForm::executeAction() const {
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
     // Announce the presidential pardon
+    if (this->isFormSigned() == false)
+		throw (FormNotSignedException());
+	if (executor.getGrade() > this->getExecuteGrade())
+		throw (FormGradeTooLowException());
     std::cout  << target << " has been pardoned by Zaphod Beeblebrox!" << std::endl;
 }
 

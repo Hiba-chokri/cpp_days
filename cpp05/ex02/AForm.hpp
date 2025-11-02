@@ -4,6 +4,31 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
+
+class FormGradeTooHighException : public std::exception
+{
+public:
+	const char	*what() const throw();
+};
+
+class FormGradeTooLowException : public std::exception
+{
+public:
+	const char	*what() const throw();
+};
+
+class FormNotSignedException : public std::exception
+{
+public:
+	const char	*what() const throw();
+};
+
+class FormFileException : public std::exception
+{
+public:
+	const char	*what() const throw();
+};
+
 class AForm {
     private:
         const std::string name;
@@ -16,22 +41,13 @@ class AForm {
         AForm(const AForm& obj);
         AForm& operator=(const AForm& obj);
         ~AForm();
-        void execute(Bureaucrat const & executor) const;
-        virtual void executeAction() const = 0;
+        virtual void execute(Bureaucrat const & executor) const = 0;
         // getters
         std::string getName() const;
         bool getIsSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
         void beSigned(const Bureaucrat& b);
-        class GradeTooHighException : public std::exception {
-        public:
-            const char* what() const throw();
-        };
-        class GradeTooLowException : public std::exception {
-        public:
-            const char* what() const throw();
-        };
 };
 
 std::ostream& operator<<(std::ostream& out, const AForm& f);

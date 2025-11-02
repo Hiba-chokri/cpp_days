@@ -27,11 +27,13 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 }
 
 // Execute action - makes drilling noises and attempts robotomy (validation handled by base class)
-void RobotomyRequestForm::executeAction() const {
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+    if (this->isFormSigned() == false)
+		throw (FormNotSignedException());
+	if (executor.getGrade() > this->getExecuteGrade())
+		throw (FormGradeTooLowException());
     // Make drilling noises
     std::cout << "BZZZZZZZZ... DRILLING NOISES... BZZZZZZZZ..." << std::endl;
-    std::cout << "VRRRRRR... MECHANICAL WHIRRING... VRRRRRR..." << std::endl;
-    std::cout << "CLANK CLANK... ROBOTIC ASSEMBLY... CLANK CLANK..." << std::endl;
     
     // Initialize random seed (should be done once, but this is simple)
     srand(time(NULL));

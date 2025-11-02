@@ -1,6 +1,14 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+    return "Grade too high!";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+            return "Grade too low!";
+}
+
 std::string Bureaucrat::getName() const {
     return name;
 }
@@ -47,19 +55,7 @@ Bureaucrat::~Bureaucrat()
     std::cout << "Bureaucrat destructed !" << std::endl;
 }
 
-class GradeTooHighException: public std::exception {
-    public:
-        const char* what() const throw() {
-            return "Grade too high!";
-        }
-};
 
-class GradeTooLowException: public std::exception {
-    public:
-        const char* what() const throw() {
-            return "Grade too low!";
-        }
-};
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
 {
