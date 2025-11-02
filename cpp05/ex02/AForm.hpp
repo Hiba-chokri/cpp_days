@@ -1,33 +1,11 @@
-#ifndef AAForm_HPP
-#define AAFORM_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
 
 
-class FormGradeTooHighException : public std::exception
-{
-public:
-	const char	*what() const throw();
-};
 
-class FormGradeTooLowException : public std::exception
-{
-public:
-	const char	*what() const throw();
-};
-
-class FormNotSignedException : public std::exception
-{
-public:
-	const char	*what() const throw();
-};
-
-class FormFileException : public std::exception
-{
-public:
-	const char	*what() const throw();
-};
 
 class AForm {
     private:
@@ -42,6 +20,29 @@ class AForm {
         AForm& operator=(const AForm& obj);
         ~AForm();
         virtual void execute(Bureaucrat const & executor) const = 0;
+        class FormGradeTooHighException : public std::exception
+        {
+        public:
+            const char	*what() const throw();
+        };
+
+        class FormGradeTooLowException : public std::exception
+        {
+        public:
+            const char	*what() const throw();
+        };
+
+        class FormNotSignedException : public std::exception
+        {
+        public:
+            const char	*what() const throw();
+        };
+
+        class FormFileException : public std::exception
+        {
+        public:
+            const char	*what() const throw();
+        };
         // getters
         std::string getName() const;
         bool getIsSigned() const;

@@ -6,17 +6,14 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45
     std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
 
-// Parameterized constructor
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("RobotomyRequestForm", 72, 45), target(target) {
     std::cout << "RobotomyRequestForm parameterized constructor called with target: " << target << std::endl;
 }
 
-// Copy constructor
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& obj) : AForm(obj), target(obj.target) {
     std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 }
 
-// Assignment operator
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& obj) {
     std::cout << "RobotomyRequestForm assignment operator called" << std::endl;
     if (this != &obj) {
@@ -26,18 +23,16 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
     return *this;
 }
 
-// Execute action - makes drilling noises and attempts robotomy (validation handled by base class)
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-    if (this->isFormSigned() == false)
+    if (!getIsSigned())
 		throw (FormNotSignedException());
-	if (executor.getGrade() > this->getExecuteGrade())
-		throw (FormGradeTooLowException());
+	if (executor.getGrade() > getGradeToExecute())
+        throw FormGradeTooLowException();
     // Make drilling noises
     std::cout << "BZZZZZZZZ... DRILLING NOISES... BZZZZZZZZ..." << std::endl;
-    
-    // Initialize random seed (should be done once, but this is simple)
+
+    //TODO 
     srand(time(NULL));
-    
     // 50% chance of success
     if (rand() % 2 == 0) {
         std::cout << "SUCCESS: " << target << " has been robotomized successfully!" << std::endl;
@@ -49,6 +44,6 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 }
 
 // Destructor
-RobotomyRequestForm::~RobotomyRequestForm() {
+RobotomyRequestForm::~RobotomyRequestForm(){
     std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }

@@ -2,14 +2,7 @@
 #include "Form.hpp"
 
 int main() {
-    std::cout << "========================================" << std::endl;
-    std::cout << "         FORM TESTING (EX01)" << std::endl;
-    std::cout << "========================================" << std::endl;
-
-    // ========================================
-    // TEST 1: Valid Form Creation
-    // ========================================
-    std::cout << "\n=== TEST 1: Valid Form Creation ===" << std::endl;
+    std::cout << " TEST 1: Valid Form Creation ===" << std::endl;
     try {
         Form form1("Tax Return", 50, 25);
         std::cout << form1 << std::endl;
@@ -61,9 +54,9 @@ int main() {
         std::cout << "Exception caught: " << e.what() << std::endl;
     }
 
-    // ========================================
-    // TEST 4: Successful Form Signing
-    // ========================================
+    // // ========================================
+    // // TEST 4: Successful Form Signing
+    // // ========================================
     std::cout << "\n=== TEST 4: Successful Form Signing ===" << std::endl;
     try {
         Form form("Driver's License", 80, 40);
@@ -83,7 +76,7 @@ int main() {
         std::cout << "Exception caught: " << e.what() << std::endl;
     }
 
-    // ========================================
+    // // ========================================
     // TEST 5: Failed Form Signing (Grade Too Low)
     // ========================================
     std::cout << "\n=== TEST 5: Failed Form Signing (Grade Too Low) ===" << std::endl;
@@ -105,116 +98,116 @@ int main() {
         std::cout << "Exception caught: " << e.what() << std::endl;
     }
 
-    // ========================================
-    // TEST 6: Direct beSigned Method Testing
-    // ========================================
-    std::cout << "\n=== TEST 6: Direct beSigned Method Testing ===" << std::endl;
-    try {
-        Form form("Test Form", 60, 30);
-        Bureaucrat manager("Charlie", 40);
+    // // ========================================
+    // // TEST 6: Direct beSigned Method Testing
+    // // ========================================
+    // std::cout << "\n=== TEST 6: Direct beSigned Method Testing ===" << std::endl;
+    // try {
+    //     Form form("Test Form", 60, 30);
+    //     Bureaucrat manager("Charlie", 40);
         
-        std::cout << "Before beSigned:" << std::endl;
-        std::cout << form << std::endl;
+    //     std::cout << "Before beSigned:" << std::endl;
+    //     std::cout << form << std::endl;
         
-        form.beSigned(manager); // Should work (40 <= 60)
+    //     form.beSigned(manager); // Should work (40 <= 60)
         
-        std::cout << "After beSigned:" << std::endl;
-        std::cout << form << std::endl;
-    }
-    catch (std::exception &e) {
-        std::cout << "Exception caught: " << e.what() << std::endl;
-    }
+    //     std::cout << "After beSigned:" << std::endl;
+    //     std::cout << form << std::endl;
+    // }
+    // catch (std::exception &e) {
+    //     std::cout << "Exception caught: " << e.what() << std::endl;
+    // }
 
-    // ========================================
-    // TEST 7: Direct beSigned Method Failure
-    // ========================================
-    std::cout << "\n=== TEST 7: Direct beSigned Method Failure ===" << std::endl;
-    try {
-        Form form("High Security Form", 20, 10);
-        Bureaucrat junior("Diana", 30); // Grade 30 cannot sign (30 > 20)
+    // // ========================================
+    // // TEST 7: Direct beSigned Method Failure
+    // // ========================================
+    // std::cout << "\n=== TEST 7: Direct beSigned Method Failure ===" << std::endl;
+    // try {
+    //     Form form("High Security Form", 20, 10);
+    //     Bureaucrat junior("Diana", 30); // Grade 30 cannot sign (30 > 20)
         
-        std::cout << "Before beSigned attempt:" << std::endl;
-        std::cout << form << std::endl;
+    //     std::cout << "Before beSigned attempt:" << std::endl;
+    //     std::cout << form << std::endl;
         
-        form.beSigned(junior); // Should throw exception
+    //     form.beSigned(junior); // Should throw exception
         
-        std::cout << "After beSigned (shouldn't print):" << std::endl;
-        std::cout << form << std::endl;
-    }
-    catch (std::exception &e) {
-        std::cout << "Exception caught: " << e.what() << std::endl;
-    }
+    //     std::cout << "After beSigned (shouldn't print):" << std::endl;
+    //     std::cout << form << std::endl;
+    // }
+    // catch (std::exception &e) {
+    //     std::cout << "Exception caught: " << e.what() << std::endl;
+    // }
 
-    // ========================================
-    // TEST 8: Copy Constructor and Assignment
-    // ========================================
-    std::cout << "\n=== TEST 8: Copy Constructor and Assignment ===" << std::endl;
-    try {
-        Form original("Original Form", 90, 60);
-        Bureaucrat signer("Eve", 80);
+    // // ========================================
+    // // TEST 8: Copy Constructor and Assignment
+    // // ========================================
+    // std::cout << "\n=== TEST 8: Copy Constructor and Assignment ===" << std::endl;
+    // try {
+    //     Form original("Original Form", 90, 60);
+    //     Bureaucrat signer("Eve", 80);
         
-        // Sign the original
-        original.beSigned(signer);
+    //     // Sign the original
+    //     original.beSigned(signer);
         
-        // Test copy constructor
-        Form copy(original);
+    //     // Test copy constructor
+    //     Form copy(original);
         
-        // Test assignment operator
-        Form assigned("Temp Form", 150, 150);
-        assigned = original;
+    //     // Test assignment operator
+    //     Form assigned("Temp Form", 150, 150);
+    //     assigned = original;
         
-        std::cout << "Original: " << original << std::endl;
-        std::cout << "Copy: " << copy << std::endl;
-        std::cout << "Assigned: " << assigned << std::endl;
-    }
-    catch (std::exception &e) {
-        std::cout << "Exception caught: " << e.what() << std::endl;
-    }
+    //     std::cout << "Original: " << original << std::endl;
+    //     std::cout << "Copy: " << copy << std::endl;
+    //     std::cout << "Assigned: " << assigned << std::endl;
+    // }
+    // catch (std::exception &e) {
+    //     std::cout << "Exception caught: " << e.what() << std::endl;
+    // }
 
-    // ========================================
-    // TEST 9: Multiple Bureaucrats, Multiple Forms
-    // ========================================
-    std::cout << "\n=== TEST 9: Multiple Bureaucrats, Multiple Forms ===" << std::endl;
-    try {
-        // Create different bureaucrats with different authority levels
-        Bureaucrat ceo("CEO", 1);           // Highest authority
-        Bureaucrat manager("Manager", 25);  // High authority
-        Bureaucrat employee("Employee", 75); // Medium authority
-        Bureaucrat intern("Intern", 140);    // Low authority
+    // // ========================================
+    // // TEST 9: Multiple Bureaucrats, Multiple Forms
+    // // ========================================
+    // std::cout << "\n=== TEST 9: Multiple Bureaucrats, Multiple Forms ===" << std::endl;
+    // try {
+    //     // Create different bureaucrats with different authority levels
+    //     Bureaucrat ceo("CEO", 1);           // Highest authority
+    //     Bureaucrat manager("Manager", 25);  // High authority
+    //     Bureaucrat employee("Employee", 75); // Medium authority
+    //     Bureaucrat intern("Intern", 140);    // Low authority
         
-        // Create forms with different requirements
-        Form vipForm("VIP Document", 5, 3);      // Only CEO can sign/execute
-        Form managerForm("Management Report", 30, 20); // Manager+ can sign
-        Form employeeForm("Work Order", 80, 60);  // Employee+ can sign
-        Form internForm("Copy Request", 150, 150); // Anyone can sign
+    //     // Create forms with different requirements
+    //     Form vipForm("VIP Document", 5, 3);      // Only CEO can sign/execute
+    //     Form managerForm("Management Report", 30, 20); // Manager+ can sign
+    //     Form employeeForm("Work Order", 80, 60);  // Employee+ can sign
+    //     Form internForm("Copy Request", 150, 150); // Anyone can sign
         
-        std::cout << "\n--- Bureaucrats ---" << std::endl;
-        std::cout << ceo << std::endl;
-        std::cout << manager << std::endl;
-        std::cout << employee << std::endl;
-        std::cout << intern << std::endl;
+    //     std::cout << "\n--- Bureaucrats ---" << std::endl;
+    //     std::cout << ceo << std::endl;
+    //     std::cout << manager << std::endl;
+    //     std::cout << employee << std::endl;
+    //     std::cout << intern << std::endl;
         
-        std::cout << "\n--- Forms ---" << std::endl;
-        std::cout << vipForm << std::endl;
-        std::cout << managerForm << std::endl;
-        std::cout << employeeForm << std::endl;
-        std::cout << internForm << std::endl;
+    //     std::cout << "\n--- Forms ---" << std::endl;
+    //     std::cout << vipForm << std::endl;
+    //     std::cout << managerForm << std::endl;
+    //     std::cout << employeeForm << std::endl;
+    //     std::cout << internForm << std::endl;
         
-        std::cout << "\n--- Signing Attempts ---" << std::endl;
-        // These should succeed
-        ceo.signForm(vipForm);
-        manager.signForm(managerForm);
-        employee.signForm(employeeForm);
-        intern.signForm(internForm);
+    //     std::cout << "\n--- Signing Attempts ---" << std::endl;
+    //     // These should succeed
+    //     ceo.signForm(vipForm);
+    //     manager.signForm(managerForm);
+    //     employee.signForm(employeeForm);
+    //     intern.signForm(internForm);
         
-        // These should fail
-        intern.signForm(vipForm);      // Intern can't sign VIP document
-        employee.signForm(managerForm); // Employee can't sign manager document
+    //     // These should fail
+    //     intern.signForm(vipForm);      // Intern can't sign VIP document
+    //     employee.signForm(managerForm); // Employee can't sign manager document
         
-    }
-    catch (std::exception &e) {
-        std::cout << "Exception caught: " << e.what() << std::endl;
-    }
+    // }
+    // catch (std::exception &e) {
+    //     std::cout << "Exception caught: " << e.what() << std::endl;
+    // }
 
     std::cout << "\n========================================" << std::endl;
     std::cout << "            END OF TESTS" << std::endl;

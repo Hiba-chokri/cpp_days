@@ -25,13 +25,20 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     return *this;
 }
 
-// Execute action - announces presidential pardon (validation handled by base class)
-void PresidentialPardonForm::executeAction() const {
-    // Announce the presidential pardon
-    std::cout  << target << " has been pardoned by Zaphod Beeblebrox!" << std::endl;
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+    // Check if form is signed
+    if (!getIsSigned()) {
+        throw FormGradeTooLowException();
+    }
+    // Check if executor has sufficient grade
+    if (executor.getGrade() > getGradeToExecute()) {
+        throw FormGradeTooLowException();
+    }
+    // If all checks pass, call the concrete implementation
+    std::cout << target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
-
 // Destructor
-PresidentialPardonForm::~PresidentialPardonForm() {
+PresidentialPardonForm::~PresidentialPardonForm() 
+{
     std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
