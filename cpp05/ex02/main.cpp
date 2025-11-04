@@ -41,7 +41,7 @@ int main() {
         Bureaucrat boss("Boss", 1);
         
         std::cout << "Trying to execute unsigned form..." << std::endl;
-        boss.executeAForm(shrub);  // Should fail - not signed yet
+        boss.executeForm(shrub);  // Should fail - not signed yet
     }
     catch (std::exception& e) {
         std::cout << "Caught exception: " << e.what() << std::endl;
@@ -57,9 +57,9 @@ int main() {
         Bureaucrat bob("Bob", 130);  // Grade 130: can sign (145) and exec (137)
         
         std::cout << shrub << std::endl;
-        bob.signAForm(shrub);
+        bob.signForm(shrub);
         std::cout << shrub << std::endl;
-        bob.executeAForm(shrub);
+        bob.executeForm(shrub);
         std::cout << "Check for 'office_shrubbery' file in your directory!" << std::endl;
     }
     catch (std::exception& e) {
@@ -76,7 +76,7 @@ int main() {
         Bureaucrat intern("Intern", 100);  // Grade 100: too low to sign (needs 72)
         
         std::cout << robot << std::endl;
-        intern.signAForm(robot);  // Should fail
+        intern.signForm(robot);  // Should fail
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
@@ -93,9 +93,9 @@ int main() {
         Bureaucrat lowLevel("LowLevel", 70); // Can sign (72)
         
         std::cout << robot << std::endl;
-        lowLevel.signAForm(robot);  // Success
+        lowLevel.signForm(robot);  // Success
         std::cout << robot << std::endl;
-        manager.executeAForm(robot);  // Should fail - grade 50 too low for exec (needs 45)
+        manager.executeForm(robot);  // Should fail - grade 50 too low for exec (needs 45)
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
@@ -113,16 +113,16 @@ int main() {
         Bureaucrat boss("Boss", 1);
         
         // Try multiple times to see random 50% success/fail
-        boss.signAForm(robot1);
-        boss.executeAForm(robot1);
+        boss.signForm(robot1);
+        boss.executeForm(robot1);
         
         std::cout << std::endl;
-        boss.signAForm(robot2);
-        boss.executeAForm(robot2);
+        boss.signForm(robot2);
+        boss.executeForm(robot2);
         
         std::cout << std::endl;
-        boss.signAForm(robot3);
-        boss.executeAForm(robot3);
+        boss.signForm(robot3);
+        boss.executeForm(robot3);
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
@@ -138,9 +138,9 @@ int main() {
         Bureaucrat president("President", 1);  // Grade 1: can do anything
         
         std::cout << pardon << std::endl;
-        president.signAForm(pardon);
+        president.signForm(pardon);
         std::cout << pardon << std::endl;
-        president.executeAForm(pardon);
+        president.executeForm(pardon);
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
@@ -155,8 +155,8 @@ int main() {
         PresidentialPardonForm pardon("Zaphod");
         Bureaucrat vicePresident("VP", 10);  // Grade 10: can sign (25) but can't exec (5)
         
-        vicePresident.signAForm(pardon);  // Success
-        vicePresident.executeAForm(pardon);  // Fail
+        vicePresident.signForm(pardon);  // Success
+        vicePresident.executeForm(pardon);  // Fail
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
@@ -175,16 +175,16 @@ int main() {
         PresidentialPardonForm pardon("Trillian");
         
         // Sign all
-        superBoss.signAForm(shrub);
-        superBoss.signAForm(robot);
-        superBoss.signAForm(pardon);
+        superBoss.signForm(shrub);
+        superBoss.signForm(robot);
+        superBoss.signForm(pardon);
         
         std::cout << std::endl;
         
         // Execute all
-        superBoss.executeAForm(shrub);
-        superBoss.executeAForm(robot);
-        superBoss.executeAForm(pardon);
+        superBoss.executeForm(shrub);
+        superBoss.executeForm(robot);
+        superBoss.executeForm(pardon);
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
@@ -201,8 +201,8 @@ int main() {
         Bureaucrat exactExec("ExactExec", 137);    // Exactly the exec requirement
         
         std::cout << "Testing exact grade boundaries..." << std::endl;
-        exactSign.signAForm(shrub);    // Should succeed
-        exactExec.executeAForm(shrub);  // Should succeed
+        exactSign.signForm(shrub);    // Should succeed
+        exactExec.executeForm(shrub);  // Should succeed
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;

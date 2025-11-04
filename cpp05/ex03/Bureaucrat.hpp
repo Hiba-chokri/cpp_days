@@ -20,8 +20,8 @@ class Bureaucrat
         int getGrade() const;
         void incrementGrade();
         void decrementGrade();
-        void signAForm(AForm& form) const;
-        void executeAForm(AForm const & form) const;
+        void signForm(AForm& form) const;
+        void executeForm(AForm const & form) const;
         class GradeTooHighException: public std::exception {
             public:
                 const char* what() const throw();  // overrides std::exception::what()

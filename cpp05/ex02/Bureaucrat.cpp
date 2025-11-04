@@ -79,7 +79,7 @@ void Bureaucrat::decrementGrade()
    grade++;
 }
 
-void Bureaucrat::signAForm(AForm& form) const {
+void Bureaucrat::signForm(AForm& form) const {
     try {
         form.beSigned(*this);  // Call AForm's beSigned method
         std::cout << name << " signed " << form.getName() << std::endl;
@@ -89,7 +89,7 @@ void Bureaucrat::signAForm(AForm& form) const {
     }
 }
 
-void Bureaucrat::executeAForm(AForm const & form) const {
+void Bureaucrat::executeForm(AForm const & form) const {
     try {
         form.execute(*this);  // Call AForm's execute method
         std::cout << name << " executed " << form.getName() << std::endl;

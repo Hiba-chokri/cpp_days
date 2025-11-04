@@ -19,6 +19,11 @@ Intern &Intern::operator=(const Intern &obj)
     return *this;
 }
 
+Intern::~Intern()
+{
+    std::cout << "Intern destructed !" << std::endl;
+}
+
 AForm* Intern::makeForm(std::string FormName, std::string targetForm)
 {
     std::string arr[3] = {"robotomy request" , "shrubbery creation", "presidential pardon" };
@@ -42,12 +47,7 @@ AForm* Intern::makeForm(std::string FormName, std::string targetForm)
         case(2):
             return new PresidentialPardonForm(targetForm);
         default:
-            std::cout << "Intern couldn't find the form: " << FormName << std::endl;
+            std::cout << "Intern did not find the form name :  " << FormName << std::endl;
     }
     return NULL;
-}
-
-Intern::~Intern()
-{
-    std::cout << "Intern destructed !" << std::endl;
 }
