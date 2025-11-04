@@ -1,5 +1,8 @@
 #include "Intern.hpp"
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 Intern::Intern()
 {
     std::cout << "Intern Constructed !" << std::endl;
@@ -46,5 +49,5 @@ AForm* Intern::makeForm(std::string FormName, std::string targetForm)
 
 Intern::~Intern()
 {
-    std::cout << "Intern denstructed !" << std::endl;
+    std::cout << "Intern destructed !" << std::endl;
 }
