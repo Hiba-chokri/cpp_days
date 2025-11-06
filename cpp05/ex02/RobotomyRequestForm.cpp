@@ -3,6 +3,11 @@
 #include <ctime>  
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), target("default") {
+    static bool rand = false;
+    if (!rand) {
+        std::srand(std::time(NULL));
+        rand = true;
+    }
     std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
 
@@ -31,8 +36,6 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     // Make drilling noises
     std::cout << "BZZZZZZZZ... DRILLING NOISES... BZZZZZZZZ..." << std::endl;
 
-    //TODO 
-    srand(time(NULL));
     // 50% chance of success
     if (rand() % 2 == 0) {
         std::cout << "SUCCESS: " << target << " has been robotomized successfully!" << std::endl;

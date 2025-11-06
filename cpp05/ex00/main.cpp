@@ -58,7 +58,7 @@ int main() {
         std::cout << "Exception caught while decrementGradeing: " << e.what() << std::endl;
     }
 
-    std::cout << "\n=== TEST 6: Copy & Assignment ===" << std::endl;
+    std::cout << " TEST 6: Copy & Assignment ===" << std::endl;
     try {
         Bureaucrat original("Frank", 10);
         Bureaucrat copy(original); // copy constructor

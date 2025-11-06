@@ -12,7 +12,7 @@ const char	*AForm::FormGradeTooLowException::what() const throw()
 
 const char	*AForm::FormNotSignedException::what() const throw()
 {
-	return ("Form::FormNotSignedException");
+	return ("FormNotSignedException");
 }
 
 const char	*AForm::FormFileException::what() const throw()

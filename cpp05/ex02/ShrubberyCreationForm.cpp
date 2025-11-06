@@ -29,7 +29,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
     std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-    // First, validate execution (handled by base class)
      if (!getIsSigned())
 		throw (FormNotSignedException());
 	if (executor.getGrade() > getGradeToExecute())

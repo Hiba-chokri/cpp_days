@@ -217,7 +217,7 @@ int main() {
         ShrubberyCreationForm original("original");
         Bureaucrat signer("Signer", 100);
         
-        signer.signAForm(original);
+        signer.signForm(original);
         
         // Copy constructor
         ShrubberyCreationForm copy(original);
