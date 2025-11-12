@@ -2,14 +2,13 @@
 #define DATA_HPP
 #include <string>
 #include <stdint.h>
-class Data
+
+struct Data
 {
     public :
-        Data();
         int integer;
         std::string str;
         float value;
-        ~Data();
 
 };
 

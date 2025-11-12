@@ -20,7 +20,7 @@ int main() {
     else
         std::cout << "Something went wrong.\n";
 
-    // Access data through ptr
+
     std::cout << "ptr->integer = " << ptr->integer << std::endl;
     std::cout << "ptr->str = " << ptr->str << std::endl;
     std::cout << "ptr->value = " << ptr->value << std::endl;
