@@ -3,11 +3,10 @@
 
 int main()
 {
-    int* a = new int();
-    std::cout << *a;
-
+    // int* a = new int();
+    // std::cout << *a;
     try {
-        Array<int> arr(5);
+         Array<int> arr(5);
         for (unsigned int i = 0; i < arr.size(); ++i)
             arr[i] = i * 10;
 

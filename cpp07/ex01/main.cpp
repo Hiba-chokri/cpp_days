@@ -45,14 +45,4 @@ int main()
     std::cout << "  Strings: ";
     iter(stringArray, stringSize, printString);
     std::cout << std::endl << std::endl;
-
-
-    const int constArray[] = {100, 200, 300, 400, 500};
-    size_t constSize = 5;
-    std::cout << "  Const array: ";
-    iter(constArray, constSize, printInt);
-    std::cout << std::endl;
-
-    // This would NOT compile (trying to modify const array):
-    //  iter(constArray, constSize, incrementInt);
 }
