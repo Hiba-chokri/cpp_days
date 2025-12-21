@@ -1,7 +1,7 @@
 NAME = MutantStack
 CXX = c++
 CXXFLAGS =  -Wall -Wextra -Werror -std=c++98
-src = main.cpp Span.cpp
+src = main.cpp
 
 OBJ = $(src:.cpp=.o)
 

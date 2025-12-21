@@ -2,13 +2,14 @@
 
 int main() {
     try {
-        Span sp(5); // Span that can hold 5 numbers
-
-        sp.addNumber(6);
-        sp.addNumber(3);
-        sp.addNumber(17);
-        sp.addNumber(9);
-        sp.addNumber(11);
+        int arr[10] = {1, 2, 3 ,4,6,7,8,9,0, 5};
+        Span sp(10); // Span that can hold 5 numbers
+        sp.fillRandomNumbers(arr,10);
+        // sp.addNumber(6);
+        // sp.addNumber(3);
+        // sp.addNumber(17);
+        // sp.addNumber(9);
+        // sp.addNumber(11);
 
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
@@ -21,18 +22,18 @@ int main() {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 
-    // Testing with a large random range
-    try {
-        Span bigSpan(10000);
-        for (int i = 0; i < 10000; ++i) {
-            bigSpan.addNumber(i);
-        }
-        std::cout << "Shortest Span in bigSpan: " << bigSpan.shortestSpan() << std::endl;
-        std::cout << "Longest Span in bigSpan: " << bigSpan.longestSpan() << std::endl;
-    }
-    catch (std::exception &e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
+    // // Testing with a large random range
+    // try {
+    //     Span bigSpan(10000);
+    //     for (int i = 0; i < 10000; ++i) {
+    //         bigSpan.addNumber(i);
+    //     }
+    //     std::cout << "Shortest Span in bigSpan: " << bigSpan.shortestSpan() << std::endl;
+    //     std::cout << "Longest Span in bigSpan: " << bigSpan.longestSpan() << std::endl;
+    // }
+    // catch (std::exception &e) {
+    //     std::cerr << "Exception: " << e.what() << std::endl;
+    // }
 //     Span sp = Span(5);
 // sp.addNumber(6);
 // sp.addNumber(3);
