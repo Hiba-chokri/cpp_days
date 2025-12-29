@@ -15,6 +15,9 @@ class BitcoinExchange
         BitcoinExchange(const BitcoinExchange& other);
         BitcoinExchange &operator=(const BitcoinExchange &other);
         ~BitcoinExchange();
+        void load_Database();
+        void processFileInput(std::string date, std::string valueStr);
+        double getRate(const std::string &date) const;
         
 };
 
