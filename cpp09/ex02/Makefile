@@ -1,6 +1,6 @@
 NAME = PmergeMe
 CXX = c++
-CXXFLAGS =  -Wall -Wextra -Werror -std=c++98
+CXXFLAGS =  -Wall -Wextra -Werror -std=c++98 -fPIE
 src = main.cpp PmergeMe.cpp
 
 OBJ = $(src:.cpp=.o)
@@ -8,7 +8,7 @@ OBJ = $(src:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -pie -o $(NAME)
 
 clean: 
 	rm -rf $(OBJ)

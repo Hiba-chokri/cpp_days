@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <sys/time.h>  // For gettimeofday
 
 void displayVector(const std::vector<int> &vec, const std::string &label)
 {
@@ -15,11 +16,17 @@ void displayVector(const std::vector<int> &vec, const std::string &label)
     std::cout << std::endl;
 }
 
+double getTimeInMicroseconds()
+{
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return tv.tv_sec * 1000000.0 + tv.tv_usec;
+}
+
 int main(int argc, char **argv)
 {
     try
     {
-        // Check if we have arguments
         if (argc < 2)
         {
             std::cerr << "Error: No input provided" << std::endl;
@@ -27,30 +34,41 @@ int main(int argc, char **argv)
             return 1;
         }
 
-        // Create PmergeMe object and validate input
+        // Create and validate
         PmergeMe sorter;
         sorter.validateInput(argc, argv);
 
-        // Get the original data (before sorting)
+        // Get original data
         std::vector<int> original = sorter.getVectorData();
 
         // Display "Before"
         displayVector(original, "Before: ");
 
-        // Sort the data
-        sorter.sort();
+        // Time vector sort only
+        std::vector<int> vectorCopy = sorter.getVectorData();
+        double start_vector = getTimeInMicroseconds();
+        sorter.mergeInsertSortVector(vectorCopy);
+        double end_vector = getTimeInMicroseconds();
+        double time_vector = end_vector - start_vector;
 
-        // Display "After"
-        displayVector(sorter.getVectorData(), "After:  ");
+        // Display "After" using the sorted vector
+        displayVector(vectorCopy, "After:  ");
 
-        // Display timing results (TODO: implement timing in sort())
-        // std::cout << std::fixed << std::setprecision(5);
-        // std::cout << "Time to process a range of " << original.size() 
-        //           << " elements with std::vector : " 
-        //           << sorter.getVectorTime() << " us" << std::endl;
-        // std::cout << "Time to process a range of " << original.size() 
-        //           << " elements with std::deque : " 
-        //           << sorter.getDequeTime() << " us" << std::endl;
+        // Time deque sort only
+        std::deque<int> dequeCopy = sorter.getDequeData();
+        double start_deque = getTimeInMicroseconds();
+        sorter.mergeInsertSortDeque(dequeCopy);
+        double end_deque = getTimeInMicroseconds();
+        double time_deque = end_deque - start_deque;
+
+        // Display timing for both containers
+        std::cout << std::fixed << std::setprecision(5);
+        std::cout << "Time to process a range of " << original.size() 
+                  << " elements with std::vector : " 
+                  << time_vector << " us" << std::endl;
+        std::cout << "Time to process a range of " << original.size() 
+                  << " elements with std::deque  : " 
+                  << time_deque << " us" << std::endl;
 
     }
     catch (const std::exception &e)
